@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title"></title>
+    <link rel="stylesheet" href="design.css" />
+  </head>
+  <body>
+    <div class="cont">
+      <div class="left">
+        <img src="logo.svg" alt="" />
+        <h2 id="left-text"></h2>
+      </div>
+
+      <div class="right">
+        <div class="form-container">
+          <form >
+            <input type="text" id="email-input" placeholder="" />
+            <input type="password" id="password-input" placeholder="" />
+            <button class="btn" id="login-btn"></button>
+            <p id="stored-data"></p>
+            <a href="#" id="forgotten-password"></a>
+            <button class="btn green" id="create-account-btn"></button>
+          </form>
+        </div>
+
+        <p id="create-page-text">
+          <strong><a href="#" id="create-page-link"></a></strong>
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("login-btn").addEventListener("click", function (event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get input values
+  const email = document.getElementById("email-input").value;
+  const password = document.getElementById("password-input").value;
+
+  // Store the data in LocalStorage
+  localStorage.setItem("email", email);
+  localStorage.setItem("password", password);
+
+  // Optional: Show confirmation to the user
+  alert("Data saved locally!");
+
+  // Display the stored data on the page
+  displayStoredData();
+});
+
+function displayStoredData() {
+  const email = localStorage.getItem("email");
+  const password = localStorage.getItem("password");
+
+  if (email && password) {
+    document.getElementById("stored-data").innerHTML = `
+      <h3>Stored Data:</h3>
+      <p>Email: ${email}</p>
+      <p>Password: ${password}</p>
+    `;
+  }
+}
+
+    </script>
+  </body>
+</html>
