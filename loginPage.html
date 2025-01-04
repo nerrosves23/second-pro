@@ -19,7 +19,7 @@
             <input type="text" id="email-input" placeholder="" />
             <input type="password" id="password-input" placeholder="" />
             <button class="btn" id="login-btn"></button>
-            <p id="stored-data"></p>
+            <label id="stored-data"></label>
             <a href="#" id="forgotten-password"></a>
             <button class="btn green" id="create-account-btn"></button>
           </form>
@@ -57,9 +57,9 @@ function displayStoredData() {
 
   if (email && password) {
     document.getElementById("stored-data").innerHTML = `
-      <h3>Stored Data:</h3>
-      <p>Email: ${email}</p>
-      <p>Password: ${password}</p>
+     
+      the Email: ${email}
+      Password: ${password}
     `;
   }
 }
